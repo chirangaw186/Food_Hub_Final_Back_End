@@ -1,6 +1,6 @@
 var bcrypt = require('bcrypt');
 
-const customer = require('../models/customers');
+const customer = require('../models/customer');
 
 
 module.exports.signupconfirm = (req,res) => {

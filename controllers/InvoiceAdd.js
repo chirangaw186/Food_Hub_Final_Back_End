@@ -6,7 +6,7 @@ module.exports.invoiceadd = (req,res) => {
 
 var l = req.body.itemids.length;
     //console.log(req.body.itemids);
-  invoices.findOne().sort({invoiceID: -1}).then(function(details){
+  invoices.findOne().sort({_id: -1}).then(function(details){
 
   
     

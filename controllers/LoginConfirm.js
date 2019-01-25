@@ -1,5 +1,5 @@
 const bcrypt = require('bcrypt');
-const customers = require('../models/customers');
+const customers = require('../models/customer');
 
 
 module.exports.loginconfirm = (req,res) => {

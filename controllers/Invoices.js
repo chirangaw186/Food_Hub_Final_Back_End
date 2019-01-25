@@ -1,5 +1,5 @@
 const invoices = require('../models/invoicedb');
-const customers = require('../models/customers');
+const customers = require('../models/customer');
 //var result;
 
 var alldata = ["",""];  
