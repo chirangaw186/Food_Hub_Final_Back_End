@@ -20,12 +20,16 @@ const Invoice=require('../controllers/invoice')
 const fooditems=require('../controllers/fooditems')
 
 
+
 const Customerloging = require('../controllers/LoginConfirm');
 const Signupdetails = require('../controllers/SignupConfirm');
 const ShopDetails = require('../controllers/ShopDetails');
 const Invoices = require('../controllers/Invoices');
 const Items = require('../controllers/FoodItemsMobile');
 const InvoiceAdd = require('../controllers/InvoiceAdd');
+const Deliverycheck = require('../controllers/DeliveryCheck')
+const NavigateDeliverer = require('../controllers/NavigateDeliverer')
+const GetDestination = require('../controllers/GetDestination')
 
 //llogin
 router.post('/getuser',login.login);
@@ -85,11 +89,14 @@ router.post('/foodupdate/:id',fooditems.updateFood);
 
 
 router.get('/shopdetails',ShopDetails.shopdetails);
-router.get('/invoices',Invoices.invoices);
+router.post('/invoices',Invoices.invoices);
 router.post('/logindetails',Customerloging.loginconfirm);
 router.post('/signupdetails',Signupdetails.signupconfirm);
 router.post('/items',Items.fooditems);
 router.post('/invoiceinsert',InvoiceAdd.invoiceadd);
+router.post('/deliverycheck',Deliverycheck.deliverycheck);
+router.post('/navigatedeliverer',NavigateDeliverer.navigatediliverer);
+router.post('/getdestination',GetDestination.getdestination);
 
 
 

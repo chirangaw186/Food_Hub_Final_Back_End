@@ -1,163 +1,35 @@
 const invoices = require('../models/invoicedb');
-const ordereditems = require('../models/ordereditems');
-const fooditems = require('../models/itemschema');
-const locations = require('../models/location');
 
 
-module.exports.invoiceadd = (req,res) => {
+module.exports.deliverycheck = (req,res) => {
 
-var l = req.body.itemids.length;
+  invoices.find({invoiceID : req.body.id}).then(function(details){
 
-  invoices.findOne().sort({_id: -1}).then(function(details){
+    console.log(details[0].deliverystatus);  
 
+
+    if(details.length <1){
+      console.log('no data available')
+    }
+
+    else{
+      if(details[0].deliverystatus == 'On Route'){
   
+      res.send({'success' : true });
+
+      }
     
-     var id = details.invoiceID;
-       var integer = parseInt(id.split("I")[1]);   
-       id = 'I' + (++integer).toString();
 
-       
-       var today = new Date();
-       var dd = today.getDate();
-       var mm = today.getMonth()+1;
-       var yyyy = today.getFullYear();
-       
-       if(dd<10) {
-           dd = '0'+dd
-       } 
-       
-       if(mm<10) {
-           mm = '0'+mm
-       } 
-       
-       today = dd + '/' + mm + '/' + yyyy;
-
-  
-      var data = new invoices({
-                 
-
-        invoiceID:id,                
-        shopid: req.body.shop_id,
-        shopname: req.body.shopname,
-        customername:req.body.customername,
-        customeremail:req.body.customeremail,
-        orderedfooditems: req.body.itemData,
-        totalprice : req.body.total,
-        date : today
-        
-        
-       
+    }
+     
        
       });
 
-      data.save((err, doc) => {
-        
-         if (!err) {
-           console.log("invoice added");
-           res.send({ 'id': id });
+   
 
+   
 
-           var location = new locations({
-                 
-
-            invoiceID:id,                
-            c_coordinates : {
-              latitude : req.body.location_data.latitude,
-              longitude : req.body.location_data.longitude
-            },
-            address : req.body.getLocationName
-            
-            
-           
-           
-          });
-
-          location.save((err, doc) => {
-        
-            if (!err) {
-              console.log("location added");
-             
-         }
-
-         else{
-           console.log(err);
-         }
-        })
-        
-      }
-
-         else{
-             console.log(err);
-         }
-
-  
-})
-
-
-for(var i=0;i<l;i++){
-
-   var subprice = req.body.prices[i] * req.body.count[i];
-
-var item = new ordereditems({
-                 
-
-    invoiceID:id,                
-    itemid: req.body.itemids[i],
-    itemname: req.body.itemData[i],
-    unitprice : req.body.prices[i],
-    orderedamount:req.body.count[i],
-    subprice: subprice   
-
-
-  });
-  item.save((err, doc) => {
-        
-    if (!err) {
-      console.log("ordered food added");
-  
     }
-    else{
-        console.log(err);
-    }
-
-
-  })
-
-
-
-  fooditems.findOneAndUpdate(
-    {
-      shopid: req.body.shop_id,
-      itemid : req.body.itemids[i]  // search query
-    }, 
-    {
-     $inc: {qty: -req.body.count[i]}  // field:values to update
-    },
-    {
-      new: true,                       // return updated doc
-      runValidators: true              // validate before update
-    })
-  .then(doc => {
-
-    if(doc<1)
-    console.log('no data changed')
-    //console.log(doc)
-    else
-    console.log('quantity changed')
-  })
-  .catch(err => {
-    console.error(err)
-  })
-
-
-
-}
-
-  })
- 
-  
-
-  }
 
 
 

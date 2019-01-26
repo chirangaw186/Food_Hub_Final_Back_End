@@ -7,18 +7,19 @@ module.exports.invoices = (req,res) => {
 
 
 
-  invoices.find().then(function(details){
+  invoices.find({delivererID : req.body.did}).then(function(details){
 
-    
+      
     if(details.length<1){      
-      console.log('no such data');
+      console.log('no invoice data');
     }
     else{
       alldata[0] = details;
-
-      customers.find({email : details.customeremail}).then(function(customer_details){
+      console.log(alldata[0]);
+   
+      customers.find({customeremail : details[0].customeremail}).then(function(customer_details){
         if(customer_details.length<1){      
-          console.log('no such data');
+          console.log('no customer data');
         }
 else{
           alldata[1] = customer_details;
