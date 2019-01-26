@@ -46,12 +46,11 @@ const invoices = new schema({
 
     deliverystatus:{
         type:String,
-        required:true,
+        default:"Not Delivered" 
     
     },
     assignstatus:{
-        type:String,
-        required:true,
+        type:String,       
         default:"Not Assigned" 
     
     },

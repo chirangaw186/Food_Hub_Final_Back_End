@@ -85,7 +85,7 @@ router.post('/foodupdate/:id',fooditems.updateFood);
 
 
 router.get('/shopdetails',ShopDetails.shopdetails);
-//router.get('/invoices',Invoices.invoices);
+router.get('/invoices',Invoices.invoices);
 router.post('/logindetails',Customerloging.loginconfirm);
 router.post('/signupdetails',Signupdetails.signupconfirm);
 router.post('/items',Items.fooditems);

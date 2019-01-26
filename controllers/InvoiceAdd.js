@@ -1,11 +1,12 @@
 const invoices = require('../models/invoicedb');
 const ordereditems = require('../models/ordereditems');
+const fooditems = require('../models/itemschema');
 
 
 module.exports.invoiceadd = (req,res) => {
 
 var l = req.body.itemids.length;
-    //console.log(req.body.itemids);
+
   invoices.findOne().sort({_id: -1}).then(function(details){
 
   
@@ -30,12 +31,7 @@ var l = req.body.itemids.length;
        
        today = dd + '/' + mm + '/' + yyyy;
 
-    /*   console.log(req.body.customername);
-       console.log(req.body.customeremail);
-       console.log(req.body.shopname);
-       console.log(req.body.shop_id);*/
-
-
+  
       var data = new invoices({
                  
 
@@ -69,16 +65,8 @@ var l = req.body.itemids.length;
 })
 
 
-//})
-
 for(var i=0;i<l;i++){
 
-/*
-    var books = [{ name: 'Mongoose Tutorial', price: 10, quantity: 25 },
-    { name: 'NodeJS tutorial', price: 15, quantity: 5 },
-    { name: 'MongoDB Tutorial', price: 20, quantity: 2 }];
-
-    console.log(books[0]);*/
    var subprice = req.body.prices[i] * req.body.count[i];
 
 var item = new ordereditems({
@@ -97,18 +85,39 @@ var item = new ordereditems({
         
     if (!err) {
       console.log("ordered food added");
-      //res.send({ 'success': true });
-      
+  
     }
     else{
         console.log(err);
     }
 
 
+  })
 
 
 
+  fooditems.findOneAndUpdate(
+    {
+      shopid: req.body.shop_id,
+      itemid : req.body.itemids[i]  // search query
+    }, 
+    {
+     $inc: {qty: -req.body.count[i]}  // field:values to update
+    },
+    {
+      new: true,                       // return updated doc
+      runValidators: true              // validate before update
+    })
+  .then(doc => {
 
+    if(doc<1)
+    console.log('no data changed')
+    //console.log(doc)
+    else
+    console.log('quantity changed')
+  })
+  .catch(err => {
+    console.error(err)
   })
 
 
@@ -119,15 +128,7 @@ var item = new ordereditems({
  
   
 
-
-
   }
-
-
-
-
-
-
 
 
 

@@ -23,11 +23,12 @@ module.exports.signupconfirm = (req,res) => {
               var det = new customer({
                  
 
-                  email:req.body.email,                
+                  customeremail:req.body.email,                
                   password:hash,
-                  customer_name:req.body.name,
+                  customername:req.body.name,
                   address:req.body.address,
-                  mobile_no:req.body.number,
+                  mobileno:req.body.number,
+                  type : 'customer'
                
                 });
 
