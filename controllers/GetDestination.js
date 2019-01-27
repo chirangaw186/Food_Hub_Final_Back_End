@@ -6,11 +6,12 @@ module.exports.getdestination = (req,res) => {
 
 
 
-  locations.findOne({InvoiceID : "I1"}).then(function(details){
+  locations.find({invoiceID : req.body.id }).then(function(details){
 
-       console.log(details[0]);
+       //console.log(details[0].c_coordinates.latitude);
 
-       res.send({'c_coordinates' : details.c_coordinates });
+       res.send({'latitude' : details[0].c_coordinates.latitude,
+        'longitude' : details[0].c_coordinates.longitude });
 
   })
 

@@ -46,5 +46,5 @@ const Details = new schema({
 
 });
 
-const Detailsitem = mongoose.model('location', Details); 
+const Detailsitem = mongoose.model('locations', Details); 
 module.exports = Detailsitem;
