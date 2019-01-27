@@ -5,15 +5,14 @@ module.exports.deliverycheck = (req,res) => {
 
   invoices.find({invoiceID : req.body.id}).then(function(details){
 
-    console.log(details[0].deliverystatus);  
-
+  
 
     if(details.length <1){
       console.log('no data available')
     }
 
     else{
-      if(details[0].deliverystatus == 'On Route'){
+      if(details.deliverystatus == 'On Route'){
   
       res.send({'success' : true });
 
