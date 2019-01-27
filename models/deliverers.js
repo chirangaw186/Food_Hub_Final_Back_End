@@ -12,6 +12,7 @@ const Details = new schema({
         type:String
       
     },
+  
     email:{
         type:String,
         unique:true,
@@ -46,6 +47,10 @@ const Details = new schema({
         required:true
     },
  
+    imagepath:{
+        type:String
+        
+    }
 
 
 
