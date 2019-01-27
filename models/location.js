@@ -13,11 +13,11 @@ const Details = new schema({
     c_coordinates:{
 
         latitude:{
-        type:String,        
+        type:Number,        
         required:true,
         },
         longitude:{
-            type:String,        
+            type:Number,        
             required:true,
         }
         
@@ -26,12 +26,12 @@ const Details = new schema({
     d_coordinates:{
 
         latitude:{
-        type:String,        
-        default :"0" 
+        type:Number,        
+        default :0
         },
         longitude:{
-            type:String,        
-            default :"0" 
+            type:Number,        
+            default :0
         }
         
     },
