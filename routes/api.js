@@ -30,6 +30,7 @@ const InvoiceAdd = require('../controllers/InvoiceAdd');
 const Deliverycheck = require('../controllers/DeliveryCheck')
 const NavigateDeliverer = require('../controllers/NavigateDeliverer')
 const GetDestination = require('../controllers/GetDestination')
+const Paycash = require('../controllers/PayCash')
 
 
 
@@ -100,6 +101,7 @@ router.post('/invoiceinsert',InvoiceAdd.invoiceadd);
 router.post('/deliverycheck',Deliverycheck.deliverycheck);
 router.post('/navigatedeliverer',NavigateDeliverer.navigatediliverer);
 router.post('/getdestination',GetDestination.getdestination);
+router.post('/paycach',Paycash.paycash);
 
 
 
@@ -111,6 +113,14 @@ const Inserteditnumber=require('../controllers/InsertEditNumber')
 const Inserteditpassword=require('../controllers/InsertEditPassword')
 const Forgetpassword=require('../controllers/email')
 
+const DeliLoginConfirm=require('../controllers/DelivererLoginConfirm')
+const DelivererForgetPassword = require('../controllers/DelivererForget')
+const ImageUpload = require('../controllers/ImageUpload')
+const DeliveryLoginDetails = require('../controllers/DelivererDetails')
+const DeliInserteditname=require('../controllers/DeliInsertEditName')
+const DeliInserteditnumber=require('../controllers/DeliInsertEditNumber')
+const DeliInserteditaddress=require('../controllers/DeliInsertEditAddress')
+const DelivererEditPassword = require('../controllers/DelivererChangePassword')
 
 
 router.post('/logindetails',Loginconfirm.loginconfirm);
@@ -120,6 +130,16 @@ router.post('/editaddressdetails',Inserteditaddress.inserteditaddress);
 router.post('/editnumberdetails',Inserteditnumber.inserteditnumber);
 router.post('/editpassworddetails',Inserteditpassword.inserteditpassword);
 router.post('/forgetpassword',Forgetpassword.emailconf);
+
+router.post('/delivererloginconfirm',DeliLoginConfirm.delivererloginconfirm);
+router.post('/deliveryforgetpassword',DelivererForgetPassword.delivererforgetpassword)
+router.post('/imageupload',ImageUpload.imageupload)
+router.post('/delilogindetailsedit',DeliveryLoginDetails.deliverydetails)
+router.post('/delieditnamedetails',DeliInserteditname.deliinserteditname);
+router.post('/delieditnumberdetails',DeliInserteditnumber.deliinserteditnumber);
+router.post('/delieditaddressdetails',DeliInserteditaddress.deliinserteditaddress);
+router.post('/deliverereditpassworddetails',DelivererEditPassword.changepassword);
+
 
 
 /*

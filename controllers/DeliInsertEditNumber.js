@@ -1,16 +1,12 @@
-var bcrypt = require('bcrypt');
-const customer=require('../models/customer');
-module.exports.inserteditpassword = (req,res) => {
+const deliverers=require('../models/deliverers');
+module.exports.deliinserteditnumber = (req,res) => {
 
-
-  bcrypt.hash(req.body.password,10,(err,hash)=>{
-    if(!err){
-     customer.findOneAndUpdate(
+  deliverers.findOneAndUpdate(
         {
-          customeremail: req.body.email  // search query
+          email: req.body.email  // search query
         }, 
         {
-          password:hash  // field:values to update
+          mobile:req.body.number  // field:values to update
         },
         {
           new: true,                       // return updated doc
@@ -23,9 +19,6 @@ module.exports.inserteditpassword = (req,res) => {
         console.error(err)
       })
 
-    }
-  })
-
 
 
 
@@ -39,20 +32,18 @@ module.exports.inserteditpassword = (req,res) => {
 
 
 
-
-
-/*function inserteditpassword(password,email,res){
+/*function inserteditnumber(number,email,res){
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/";
 
 MongoClient.connect(url, function(err, db) {
   if (err) throw err;
   var dbo = db.db("mydb");
-  
+  //var myobj = { Name:name };
   dbo.collection("Customer").updateOne(
     { Email: email },
     {
-      $set: { Password: password },
+      $set: { MobileNo: number },
       $currentDate: { lastModified: true }
 
    
@@ -60,5 +51,4 @@ MongoClient.connect(url, function(err, db) {
   
 });
 }
-module.exports.inserteditpassword = inserteditpassword;
-*/
+module.exports.inserteditnumber = inserteditnumber;*/

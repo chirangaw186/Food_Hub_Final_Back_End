@@ -1,13 +1,13 @@
 var bcrypt = require('bcrypt');
-const customer=require('../models/customer');
-module.exports.inserteditpassword = (req,res) => {
+const driver=require('../models/deliverers');
+module.exports.changepassword = (req,res) => {
 
 
   bcrypt.hash(req.body.password,10,(err,hash)=>{
     if(!err){
-     customer.findOneAndUpdate(
+     driver.findOneAndUpdate(
         {
-          customeremail: req.body.email  // search query
+          email: req.body.email  // search query
         }, 
         {
           password:hash  // field:values to update

@@ -48,12 +48,8 @@ const Details = new schema({
     },
  
     imagepath:{
-        type:String
-        
+        type:String,        
     }
-
-
-
     
      
 });
