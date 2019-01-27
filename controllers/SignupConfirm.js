@@ -9,10 +9,10 @@ module.exports.signupconfirm = (req,res) => {
   customer.find({customeremail : req.body.email}).then(function(details){
 
     
-    if(details.length>1){
+    if(details.length>0){
       
       res.send({'success' : false});
-      console.log('done');
+      //console.log('done');
 
     }
       else{

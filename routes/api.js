@@ -35,6 +35,28 @@ const Paycash = require('../controllers/PayCash')
 
 
 
+const Loginconfirm=require('../controllers/LoginConfirm')
+const Logindetails=require('../controllers/LoginDetails')
+const Inserteditname=require('../controllers/InsertEditName')
+const Inserteditaddress=require('../controllers/InsertEditAddress')
+const Inserteditnumber=require('../controllers/InsertEditNumber')
+const Inserteditpassword=require('../controllers/InsertEditPassword')
+const Forgetpassword=require('../controllers/email')
+
+const DeliLoginConfirm=require('../controllers/DelivererLoginConfirm')
+const DelivererForgetPassword = require('../controllers/DelivererForget')
+const ImageUpload = require('../controllers/ImageUpload')
+const DeliveryLoginDetails = require('../controllers/DelivererDetails')
+const DeliInserteditname=require('../controllers/DeliInsertEditName')
+const DeliInserteditnumber=require('../controllers/DeliInsertEditNumber')
+const DeliInserteditaddress=require('../controllers/DeliInsertEditAddress')
+const DelivererEditPassword = require('../controllers/DelivererChangePassword')
+
+
+
+
+
+
 //llogin
 router.post('/getuser',login.login);
 router.post('/abc',login.signup);
@@ -102,25 +124,6 @@ router.post('/deliverycheck',Deliverycheck.deliverycheck);
 router.post('/navigatedeliverer',NavigateDeliverer.navigatediliverer);
 router.post('/getdestination',GetDestination.getdestination);
 router.post('/paycach',Paycash.paycash);
-
-
-
-const Loginconfirm=require('../controllers/LoginConfirm')
-const Logindetails=require('../controllers/LoginDetails')
-const Inserteditname=require('../controllers/InsertEditName')
-const Inserteditaddress=require('../controllers/InsertEditAddress')
-const Inserteditnumber=require('../controllers/InsertEditNumber')
-const Inserteditpassword=require('../controllers/InsertEditPassword')
-const Forgetpassword=require('../controllers/email')
-
-const DeliLoginConfirm=require('../controllers/DelivererLoginConfirm')
-const DelivererForgetPassword = require('../controllers/DelivererForget')
-const ImageUpload = require('../controllers/ImageUpload')
-const DeliveryLoginDetails = require('../controllers/DelivererDetails')
-const DeliInserteditname=require('../controllers/DeliInsertEditName')
-const DeliInserteditnumber=require('../controllers/DeliInsertEditNumber')
-const DeliInserteditaddress=require('../controllers/DeliInsertEditAddress')
-const DelivererEditPassword = require('../controllers/DelivererChangePassword')
 
 
 router.post('/logindetails',Loginconfirm.loginconfirm);

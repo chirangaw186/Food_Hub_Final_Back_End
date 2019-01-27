@@ -5,6 +5,7 @@ module.exports.deliverycheck = (req,res) => {
 
   invoices.find({invoiceID : req.body.id}).then(function(details){
 
+    
   
 
     if(details.length <1){
@@ -13,7 +14,7 @@ module.exports.deliverycheck = (req,res) => {
 
     else{
       if(details.deliverystatus == 'On Route'){
-  
+  console.log(details[0].deliverystatus);
       res.send({'success' : true });
 
       }
