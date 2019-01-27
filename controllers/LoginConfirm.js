@@ -3,18 +3,20 @@ const customers = require('../models/customer');
 
 
 module.exports.loginconfirm = (req,res) => {
-
+//console.log(req.body.email);
 customers.find({customeremail : req.body.email}).then(function(details){
-
+//console.log(details);
+       
         if(details.length<1){
-        res.send({'message' : 'no user', 'success' : false});
+          res.send({ 'success' : false});
+         
         }
-
         else{
           bcrypt.compare(req.body.password,details[0].password,(err,result)=>{    
           
             if(err){
               console.log(err);
+              res.send({ 'success' : false});
             }
           
             else if(result){
@@ -22,10 +24,17 @@ customers.find({customeremail : req.body.email}).then(function(details){
             res.send({'success' : true , 'customername': details[0].customername, 'customeremail':details[0].customeremail });
 
             }
+            else{
+           
+              res.send({ 'success' : false});
+              }
+      
           
           })
+
+        }
          
-          }
+          
         
 })
 

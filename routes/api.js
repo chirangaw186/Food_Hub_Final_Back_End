@@ -31,6 +31,9 @@ const Deliverycheck = require('../controllers/DeliveryCheck')
 const NavigateDeliverer = require('../controllers/NavigateDeliverer')
 const GetDestination = require('../controllers/GetDestination')
 
+
+
+
 //llogin
 router.post('/getuser',login.login);
 router.post('/abc',login.signup);
@@ -98,6 +101,25 @@ router.post('/deliverycheck',Deliverycheck.deliverycheck);
 router.post('/navigatedeliverer',NavigateDeliverer.navigatediliverer);
 router.post('/getdestination',GetDestination.getdestination);
 
+
+
+const Loginconfirm=require('../controllers/LoginConfirm')
+const Logindetails=require('../controllers/LoginDetails')
+const Inserteditname=require('../controllers/InsertEditName')
+const Inserteditaddress=require('../controllers/InsertEditAddress')
+const Inserteditnumber=require('../controllers/InsertEditNumber')
+const Inserteditpassword=require('../controllers/InsertEditPassword')
+const Forgetpassword=require('../controllers/email')
+
+
+
+router.post('/logindetails',Loginconfirm.loginconfirm);
+router.post('/logindetailsedit',Logindetails.logindetailsedit); 
+router.post('/editnamedetails',Inserteditname.inserteditname);
+router.post('/editaddressdetails',Inserteditaddress.inserteditaddress);
+router.post('/editnumberdetails',Inserteditnumber.inserteditnumber);
+router.post('/editpassworddetails',Inserteditpassword.inserteditpassword);
+router.post('/forgetpassword',Forgetpassword.emailconf);
 
 
 /*

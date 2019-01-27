@@ -6,7 +6,7 @@ const customer = require('../models/customer');
 module.exports.signupconfirm = (req,res) => {
 
 
-  customer.find({email : req.body.email}).then(function(details){
+  customer.find({customeremail : req.body.email}).then(function(details){
 
     
     if(details.length>1){
