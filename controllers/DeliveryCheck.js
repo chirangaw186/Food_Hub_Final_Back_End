@@ -2,29 +2,25 @@ const invoices = require('../models/invoicedb');
 
 
 module.exports.deliverycheck = (req,res) => {
-
-  invoices.find({invoiceID : req.body.id}).then(function(details){
+   
+  invoices.findOne({invoiceID : req.body.id}).then(function(details){
 
     
-  
-
-    if(details.length <1){
-      console.log('no data available')
-    }
-
-    else{
-      if(details.deliverystatus == 'On Route'){
-  console.log(details[0].deliverystatus);
+   
+      if(details.deliverystatus == "On Route"){
+  console.log(details.deliverystatus);
       res.send({'success' : true });
 
       }
+
+      else
+      console.log('not deliverered state');
     
 
-    }
+    })
      
        
-      });
-
+   
    
 
    

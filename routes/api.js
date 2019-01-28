@@ -51,8 +51,9 @@ const DeliInserteditname=require('../controllers/DeliInsertEditName')
 const DeliInserteditnumber=require('../controllers/DeliInsertEditNumber')
 const DeliInserteditaddress=require('../controllers/DeliInsertEditAddress')
 const DelivererEditPassword = require('../controllers/DelivererChangePassword')
-
-
+const UpdatedriverLocation = require('../controllers/updatedriverlocation')
+const CheckDelivererLocation = require('../controllers/CheckDelivererLocation')
+const Rating = require('../controllers/Rating')
 
 
 
@@ -124,6 +125,10 @@ router.post('/deliverycheck',Deliverycheck.deliverycheck);
 router.post('/navigatedeliverer',NavigateDeliverer.navigatediliverer);
 router.post('/getdestination',GetDestination.getdestination);
 router.post('/paycach',Paycash.paycash);
+router.post('/updatedelivererlocation',UpdatedriverLocation.updatedriverlocation);
+router.post('/checkdelivererlocation',CheckDelivererLocation.checkdelivererlocation);
+router.post('/checktofinish',CheckDelivererLocation.checktofinish);
+router.post('/rate',Rating.rate);
 
 
 router.post('/logindetails',Loginconfirm.loginconfirm);

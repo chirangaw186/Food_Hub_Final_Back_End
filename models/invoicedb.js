@@ -63,6 +63,10 @@ const invoices = new schema({
     delivererName:{
         type:String,
         default:"Not Assigned"    
+    },
+    rating:{
+        type:Number,
+       // default : 0
     }
 
 
