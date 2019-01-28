@@ -52,8 +52,8 @@ const Details = new schema({
         required: true
     },
     rating: {
-        type: String,
-        required: true
+        type: Number,
+      
     },
 
     shopstatus:{
