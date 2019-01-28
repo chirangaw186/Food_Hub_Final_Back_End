@@ -21,7 +21,7 @@ customers.find({customeremail : req.body.email}).then(function(details){
           
             else if(result){
             console.log(details[0]);
-            res.send({'success' : true , 'customername': details[0].customername, 'customeremail':details[0].customeremail });
+            res.send({'success' : true , 'data' : details[0] });
 
             }
             else{
