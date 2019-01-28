@@ -66,7 +66,7 @@ const invoices = new schema({
     },
     rating:{
         type:Number,
-       // default : 0
+        default : 0
     }
 
 
