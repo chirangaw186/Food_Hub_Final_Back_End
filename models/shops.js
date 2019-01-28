@@ -56,6 +56,10 @@ const Details = new schema({
         required: true
     },
 
+    shopstatus:{
+        type: String
+    }
+
 
 
 

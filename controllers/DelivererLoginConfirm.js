@@ -20,7 +20,7 @@ module.exports.delivererloginconfirm = (req,res) => {
               
                 else if(result){
                 console.log(details[0]);
-                res.send({'success' : true , 'drivername': details[0].driverName, 'email':details[0].email });
+                res.send({'success' : true , 'drivername': details[0].driverName, 'email':details[0].email,'driverID':details[0].driverID });
     
                 }
                 else{

@@ -7,7 +7,7 @@ module.exports.invoices = (req,res) => {
 
 
 
-  invoices.find({delivererID : req.body.did}).then(function(details){
+  invoices.find({delivererID : req.body.did, deliverystatus : 'Not Delivered'}).then(function(details){
 
       
     if(details.length<1){      
