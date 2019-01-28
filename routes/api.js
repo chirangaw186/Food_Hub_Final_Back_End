@@ -51,7 +51,7 @@ const DeliInserteditname=require('../controllers/DeliInsertEditName')
 const DeliInserteditnumber=require('../controllers/DeliInsertEditNumber')
 const DeliInserteditaddress=require('../controllers/DeliInsertEditAddress')
 const DelivererEditPassword = require('../controllers/DelivererChangePassword')
-const UpdatedriverLocation = require('../controllers/updatedriverlocation')
+const UpdatedriverLocation = require('../controllers/UpdatedriverLocation')
 const CheckDelivererLocation = require('../controllers/CheckDelivererLocation')
 const Rating = require('../controllers/Rating')
 
