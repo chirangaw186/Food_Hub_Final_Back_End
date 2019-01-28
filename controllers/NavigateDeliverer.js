@@ -9,7 +9,7 @@ module.exports.navigatediliverer=(req,res)=>{
           invoiceID : req.body.invoiceID
         },
       {
-          deliverystatus: 'On route'
+          deliverystatus: 'On Route'
       },
       {
        new : true,

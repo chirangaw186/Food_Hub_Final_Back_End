@@ -18,6 +18,7 @@ module.exports.paycash = (req,res) => {
     })
   .then(doc => {
     console.log('DELIVERY COMPLETE'); 
+    console.log(doc);
     res.send({'data' : doc}) 
   })
   .catch(err => {
