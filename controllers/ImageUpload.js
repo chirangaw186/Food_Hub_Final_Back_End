@@ -3,13 +3,13 @@ const drivers = require('../models/deliverers')
 
 module.exports.imageupload = (req,res) => {
 
-  console.log(req.body.driverid)
+  console.log(req.body.code)
       drivers.findOneAndUpdate(
     {
       driverID: req.body.driverid  // search query
     }, 
     {
-      imagepath:req.body.photo   // field:values to update
+      imagepath:req.body.code   // field:values to update
     },
     {
       new: true,                       // return updated doc
