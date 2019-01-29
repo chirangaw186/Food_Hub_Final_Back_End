@@ -7,7 +7,7 @@ module.exports.changepassword = (req,res) => {
     if(!err){
      driver.findOneAndUpdate(
         {
-          email: req.body.email  // search query
+          driverID: req.body.driverid  // search query
         }, 
         {
           password:hash  // field:values to update

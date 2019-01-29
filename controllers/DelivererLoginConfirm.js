@@ -39,6 +39,46 @@ module.exports.delivererloginconfirm = (req,res) => {
     
  }
 
+ 
+
+module.exports.delivererpasswordconfirm = (req,res) => {
+  deliverers.find({driverID : req.body.driverid}).then(function(details){
+ 
+          
+            if(details.length<1){
+              res.send({ 'success' : false});
+             
+            }
+            else{
+              bcrypt.compare(req.body.password,details[0].password,(err,result)=>{    
+              
+                if(err){
+                  console.log(err);
+                  res.send({ 'success' : false});
+                }
+              
+                else if(result){
+                console.log(details[0]);
+                res.send({'success' : true});
+    
+                }
+                else{
+               
+                  res.send({ 'success' : false});
+                  }
+          
+              
+              })
+    
+            }
+             
+              
+            
+    })
+    
+ }
+
+
 
 
 

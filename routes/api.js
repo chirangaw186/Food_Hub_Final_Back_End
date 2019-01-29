@@ -140,6 +140,7 @@ router.post('/editpassworddetails',Inserteditpassword.inserteditpassword);
 router.post('/forgetpassword',Forgetpassword.emailconf);
 
 router.post('/delivererloginconfirm',DeliLoginConfirm.delivererloginconfirm);
+router.post('/delivererpasswordconfirm',DeliLoginConfirm.delivererpasswordconfirm)
 router.post('/deliveryforgetpassword',DelivererForgetPassword.delivererforgetpassword)
 router.post('/imageupload',ImageUpload.imageupload)
 router.post('/delilogindetailsedit',DeliveryLoginDetails.deliverydetails)

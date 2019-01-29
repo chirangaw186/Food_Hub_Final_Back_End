@@ -3,7 +3,7 @@ module.exports.deliinserteditname = (req,res) => {
 
   deliverers.findOneAndUpdate(
         {
-          email: req.body.email  // search query
+          driverID: req.body.driverid  // search query
         }, 
         {
           driverName:req.body.name   // field:values to update

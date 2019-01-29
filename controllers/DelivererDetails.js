@@ -3,7 +3,7 @@ const driver = require('../models/deliverers');
 
 module.exports.deliverydetails = (req,res) => {
 
-driver.findOne({driverID : req.body.email}).then(function(details){
+driver.findOne({driverID : req.body.driverid}).then(function(details){
 
 
           if(details.length<1)

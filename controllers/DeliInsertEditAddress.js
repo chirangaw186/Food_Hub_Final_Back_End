@@ -4,7 +4,7 @@ module.exports.deliinserteditaddress= (req,res) => {
 
   deliverers .findOneAndUpdate(
         {
-          email: req.body.email  // search query
+          driverID: req.body.driverid  // search query
         }, 
         {   
           address:req.body.address   // field:values to update
